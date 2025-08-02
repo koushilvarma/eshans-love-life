@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hatsune Miku GIF Slideshow</title>
+    <style>
+        body {
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 3px solid #39c5bb;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #39c5bb;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="mikuGif" src="" alt="Hatsune Miku GIF">
+
+    <script>
+        // Array of GIF URLs (replace with your own links if needed)
+        const gifs = [
+            "https://media.tenor.com/3SP5IanFkFQAAAAM/miku-dance.gif",
+            "https://media.tenor.com/lyZQm_VrHt4AAAAM/miku.gif",
+            "https://media.tenor.com/vkQkA0DJ7jAAAAAM/miku-dancing.gif",
+            "https://media.tenor.com/QmXEBhcG5poAAAAM/hatsune-miku-miku.gif"
+        ];
+
+        const gifElement = document.getElementById("mikuGif");
+        let index = 0;
+
+        // Function to change GIF every 10 seconds
+        function changeGif() {
+            gifElement.src = gifs[index];
+            index = (index + 1) % gifs.length;
+        }
+
+        // Initialize and start the interval
+        changeGif();
+        setInterval(changeGif, 10000); // 10 seconds = 10000 ms
+    </script>
+
+</body>
+</html>
